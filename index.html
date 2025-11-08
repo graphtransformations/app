@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GraphApp Web Demo</title>
+
+    <!-- PyScript dependencies -->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <style>
+      body {
+        background-color: #111;
+        color: #eee;
+        font-family: system-ui, sans-serif;
+        text-align: center;
+      }
+      h1 {
+        margin-top: 1rem;
+      }
+      pre {
+        text-align: left;
+        display: inline-block;
+        background: #222;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Loading GraphApp...</h1>
+
+    <py-env>
+      - paths:
+        - ./main.py
+        - ./settings.py
+        - ./graph_ui.py
+        - ./ui_elements.py
+        - ./core/animation_controller.py
+        - ./core/differentiation.py
+        - ./core/function_entry.py
+        - ./core/function.py
+        - ./core/graph_plotter.py
+        - ./core/modify_function.py
+        - ./core/parser.py
+        - ./core/queue.py
+        - ./core/stack.py
+        - ./core/transform_manager.py
+        - ./core/transformation_class.py
+        - ./core/transformations_entry.py
+        - ./core/transformations.py
+        - ./core/ast.py
+    </py-env>
+
+    <py-script>
+from main import main
+
+try:
+    main()
+except Exception as e:
+    from pyscript import display
+    display(f"⚠️ Error: {e}")
+    import traceback
+    display(traceback.format_exc())
+    </py-script>
+  </body>
+</html>
