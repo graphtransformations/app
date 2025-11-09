@@ -27,6 +27,7 @@ async def main():
     pygame.init()
     pygame.key.set_repeat(300, 50)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
     pygame.display.set_caption("Transformation Animator")
     from settings import load_assets
 

@@ -62,7 +62,7 @@ async def custom_site():
     import embed
 
 
-    platform.document.body.style.background = "#7f7f7f"
+    platform.document.body.style.background = "#ffffff"
 
     import pygame
 
@@ -118,8 +118,8 @@ async def custom_site():
         total = track.len or 10  # avoid div0
         slot = ux(.060)/ total # 60%
 
-        pygame.draw.rect(screen,(10,10,10),( marginx-ux(10), marginy-uy(10), (total*slot)+ux(20), uy(110) ) )
-        pygame.draw.rect(screen,(0,255,0), ( marginx, marginy, track.pos*slot, uy(90)) )
+        pygame.draw.rect(screen,(255,255,255),( marginx-ux(10), marginy-uy(10), (total*slot)+ux(20), uy(110) ) )
+        pygame.draw.rect(screen,(255,255,255), ( marginx, marginy, track.pos*slot, uy(90)) )
 
     # wait until zip mount + overlayfs is complete
     while not track.ready:
@@ -169,9 +169,10 @@ async def custom_site():
 
         # now make a prompt
         fnt = pygame.sysfont.SysFont("freesans",  uy(80) )
-        prompt = fnt.render("Ready to start !", True, "blue")
+        screen.fill((255, 255, 255))
+        prompt = fnt.render("Click To Load", True, "black")
         pg_bar(track.len)
-        screen.blit(prompt, ( marginx+ ux(80), marginy - uy(10) ) )
+        screen.blit(prompt, ( marginx+ ux(300), marginy - uy(10) ) )
         compose()
         print("""
         * Waiting for media user engagement : please click/touch page *
@@ -190,17 +191,6 @@ async def custom_site():
 import asyncio
 
 asyncio.run( custom_site() )
-
-
-
-
-
-
-
-
-
-
-
 
 # BEGIN BLOCK
 #
@@ -248,7 +238,7 @@ config = {
 
 </script>
 
-    <title>Graph Transformations</title>
+    <title>app</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -262,7 +252,7 @@ config = {
     <link rel="prefetch" href="https://pygame-web.github.io/archives/0.9/vt/xterm-addon-image.js">
 
 
-    <link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="icon.png" sizes="16x16">
 
     <style>
         #status {
@@ -351,7 +341,6 @@ config = {
 <!--        <div class="spinner" id='spinner'></div> -->
         <div class="emscripten" id="status">Downloading...</div>
         <div class="emscripten">
-            <progress value="0" max="100" id="progress"></progress>
         </div>
     </div>
 
